@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Selection Form</title>
+</head>
+<body>
+    <h1>Exercise Selection Form</h1>
+    <form id="exerciseForm">
+        <label for="numExercises">Number of Exercises:</label>
+        <input type="number" id="numExercises" min="1" max="10">
+        <button type="button" onclick="generateExerciseInputs()">Generate Form</button>
+        <div id="exerciseInputs"></div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function generateExerciseInputs() {
+            const numExercises = parseInt(document.getElementById("numExercises").value);
+            const exerciseInputsDiv = document.getElementById("exerciseInputs");
+            exerciseInputsDiv.innerHTML = ''; // Clear previous inputs
+
+            for (let i = 1; i <= numExercises; i++) {
+                const exerciseLabel = document.createElement("label");
+                exerciseLabel.textContent = `Exercise ${i}:`;
+
+                const exerciseInput = document.createElement("input");
+                exerciseInput.type = "text";
+                exerciseInput.name = `exercise${i}`;
+
+                exerciseInputsDiv.appendChild(exerciseLabel);
+                exerciseInputsDiv.appendChild(exerciseInput);
+                exerciseInputsDiv.appendChild(document.createElement("br"));
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Picture Upload</title>
+</head>
+<body>
+    <form id="uploadForm">
+        <input type="file" id="photoInput" accept="image/*">
+        <button type="button" onclick="uploadPhoto()">Upload</button>
+    </form>
+    <img id="profilePic" src="" alt="Profile Picture">
+    <script>
+        function uploadPhoto() {
+    // Get the input element and selected file
+    const photoInput = document.getElementById('photoInput');
+    const profilePic = document.getElementById('profilePic');
+
+    // Check if a file is selected
+    if (photoInput.files.length > 0) {
+        const selectedFile = photoInput.files[0];
+
+        // Create a FileReader to read the selected file
+        const reader = new FileReader();
+
+        // Define the onload event handler for the FileReader
+        reader.onload = function(event) {
+            // Set the source of the profile picture to the loaded image
+            profilePic.src = event.target.result;
+        };
+
+        // Read the selected file as a data URL
+        reader.readAsDataURL(selectedFile);
+    }
+}
+
+    </script>
+</body>
+</html>
+
+
+
+<main>
+    <div class="main-container-center main-bg-img-dash">
+        <div class="flex-left">
+            <div class="grid">
+                <div class="flex-center">
+                    <p class="heading-stroke-dash">Get Started</p>
+                </div>
+                <div class="flex-center">
+                    <p class="heading-normal-dash">with ActiveSync</p>
+                </div>
+                <div class="flex-center p-m">
+                    <button class="primary-btn-color bg-red border-red">Visit ActiveSync</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container-center bg-dark-grey">
+        <div class="flex-center">
+            <div class="heading-sub flex-center p-m">
+                <p>Get Started</p>
+            </div>
+            <div class="heading-sub-s flex-center p-m">
+                <p>Start by sharing your personal information.</p>
+            </div>
+        </div>
+
+        <div class="flex-center m-l">
+            <div class="bg-dark-grey form-container-1">
+                <form action="">
+                    <div class="flex-center m-m">
+                        <div class="round-icon bg-dark-red">
+                            <i class="fa-solid fa-user form-icon"></i>
+                        </div>
+
+                    </div>
+                    <div class="flex-center m-s">Your information</div>
+                    <form action="">
+                        <div class="flex-center m-m">
+                            <label for="user-name" class="m-m">Name :</label>
+                            <input type="text" name="" id="user-name">
+                        </div>
+                        <div class="flex-center m-m">
+                            <label for="user-age" class="m-m">Age :</label>
+                            <input type="text" name="" id="user-age">
+                        </div>
+
+                        <div class="flex-center">
+                            <label for="photoInput" class="m-m label-small">Choose a Profile Pic</label>
+                            <input type="file" id="photoInput" accept="image/*" class="file">
+
+                        </div>
+                        <div class="flex-left m-m p-x">
+                            <label for="user-gender" class="m-m">Select your gender :</label>
+                            <select name="" id="user-gender" class="p-m m-s">
+                                <option value="M" class="p-m">Male</option>
+                                <option value="F" class="p-m">Female</option>
+                            </select>
+                        </div>
+
+
+
+
+                        <div class="flex-center m-s">
+                            <button type="button" class="form-button flex-center m-s border-red bg-red"
+                                id="submit-1">Submit</button>
+
+                        </div>
+
+
+
+
+                    </form>
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+</div>
+</main>
